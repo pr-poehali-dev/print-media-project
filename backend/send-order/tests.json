@@ -1,0 +1,40 @@
+{
+  "tests": [
+    {
+      "name": "Test OPTIONS request",
+      "method": "OPTIONS",
+      "path": "/",
+      "expectedStatus": 200
+    },
+    {
+      "name": "Test POST with valid data",
+      "method": "POST",
+      "path": "/",
+      "body": {
+        "name": "Иван Петров",
+        "phone": "+7 (965) 354-82-82",
+        "email": "test@example.com",
+        "service": "Широкоформатная печать",
+        "description": "Нужна печать баннера 3x2 метра"
+      },
+      "expectedStatus": 200,
+      "expectedBody": {
+        "success": true,
+        "message": "string"
+      },
+      "bodyMatcher": "partial"
+    },
+    {
+      "name": "Test POST with invalid phone",
+      "method": "POST",
+      "path": "/",
+      "body": {
+        "name": "Иван",
+        "phone": "123",
+        "email": "test@example.com",
+        "service": "Печать"
+      },
+      "expectedStatus": 422
+    }
+  ]
+}

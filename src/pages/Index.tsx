@@ -10,9 +10,25 @@ import {
   DialogTrigger,
 } from '@/components/ui/dialog';
 import { ScrollArea } from '@/components/ui/scroll-area';
+import { Input } from '@/components/ui/input';
+import { Textarea } from '@/components/ui/textarea';
+import { Label } from '@/components/ui/label';
+import { useToast } from '@/hooks/use-toast';
+import funcUrls from '../../backend/func2url.json';
 
 const Index = () => {
   const [activeSection, setActiveSection] = useState('home');
+  const [isOrderDialogOpen, setIsOrderDialogOpen] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const { toast } = useToast();
+  
+  const [orderForm, setOrderForm] = useState({
+    name: '',
+    phone: '',
+    email: '',
+    service: '',
+    description: ''
+  });
 
   const services = [
     {
@@ -84,6 +100,52 @@ const Index = () => {
     element?.scrollIntoView({ behavior: 'smooth' });
   };
 
+  const handleOrderSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+
+    try {
+      const response = await fetch(funcUrls['send-order'], {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(orderForm)
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        toast({
+          title: 'Заказ отправлен!',
+          description: 'Мы свяжемся с вами в ближайшее время.',
+        });
+        setOrderForm({
+          name: '',
+          phone: '',
+          email: '',
+          service: '',
+          description: ''
+        });
+        setIsOrderDialogOpen(false);
+      } else {
+        toast({
+          title: 'Ошибка',
+          description: data.error || 'Не удалось отправить заказ',
+          variant: 'destructive'
+        });
+      }
+    } catch (error) {
+      toast({
+        title: 'Ошибка',
+        description: 'Проблема с подключением к серверу',
+        variant: 'destructive'
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
   return (
     <div className="min-h-screen">
       <nav className="fixed top-0 w-full bg-white/80 backdrop-blur-md z-50 border-b border-border">
@@ -124,11 +186,80 @@ const Index = () => {
               Высокое качество, быстрые сроки и доступные цены. Работаем с любыми материалами и форматами.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" className="text-lg" onClick={() => scrollToSection('services')}>
+              <Dialog open={isOrderDialogOpen} onOpenChange={setIsOrderDialogOpen}>
+                <DialogTrigger asChild>
+                  <Button size="lg" className="text-lg">
+                    Оформить заказ
+                  </Button>
+                </DialogTrigger>
+                <DialogContent className="max-w-2xl">
+                  <DialogHeader>
+                    <DialogTitle className="text-2xl">Оформить заказ</DialogTitle>
+                  </DialogHeader>
+                  <form onSubmit={handleOrderSubmit} className="space-y-4">
+                    <div className="space-y-2">
+                      <Label htmlFor="name">Ваше имя *</Label>
+                      <Input
+                        id="name"
+                        required
+                        minLength={2}
+                        value={orderForm.name}
+                        onChange={(e) => setOrderForm({...orderForm, name: e.target.value})}
+                        placeholder="Иван Петров"
+                      />
+                    </div>
+                    <div className="space-y-2">
+                      <Label htmlFor="phone">Телефон *</Label>
+                      <Input
+                        id="phone"
+                        type="tel"
+                        required
+                        minLength={10}
+                        value={orderForm.phone}
+                        onChange={(e) => setOrderForm({...orderForm, phone: e.target.value})}
+                        placeholder="+7 (965) 354-82-82"
+                      />
+                    </div>
+                    <div className="space-y-2">
+                      <Label htmlFor="email">Email *</Label>
+                      <Input
+                        id="email"
+                        type="email"
+                        required
+                        value={orderForm.email}
+                        onChange={(e) => setOrderForm({...orderForm, email: e.target.value})}
+                        placeholder="example@mail.ru"
+                      />
+                    </div>
+                    <div className="space-y-2">
+                      <Label htmlFor="service">Интересующая услуга *</Label>
+                      <Input
+                        id="service"
+                        required
+                        minLength={3}
+                        value={orderForm.service}
+                        onChange={(e) => setOrderForm({...orderForm, service: e.target.value})}
+                        placeholder="Широкоформатная печать"
+                      />
+                    </div>
+                    <div className="space-y-2">
+                      <Label htmlFor="description">Описание заказа</Label>
+                      <Textarea
+                        id="description"
+                        rows={4}
+                        value={orderForm.description}
+                        onChange={(e) => setOrderForm({...orderForm, description: e.target.value})}
+                        placeholder="Опишите детали вашего заказа: размеры, материал, сроки..."
+                      />
+                    </div>
+                    <Button type="submit" className="w-full" disabled={isSubmitting}>
+                      {isSubmitting ? 'Отправка...' : 'Отправить заказ'}
+                    </Button>
+                  </form>
+                </DialogContent>
+              </Dialog>
+              <Button size="lg" variant="outline" className="text-lg" onClick={() => scrollToSection('services')}>
                 Наши услуги
-              </Button>
-              <Button size="lg" variant="outline" className="text-lg" onClick={() => scrollToSection('contacts')}>
-                Связаться с нами
               </Button>
             </div>
           </div>
