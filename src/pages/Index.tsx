@@ -189,32 +189,68 @@ const Index = () => {
 
       <section id="about" className="py-20 px-4 bg-muted/30">
         <div className="container mx-auto">
-          <div className="max-w-3xl mx-auto text-center">
-            <h2 className="text-4xl md:text-5xl font-bold mb-6">О нас</h2>
-            <p className="text-lg text-muted-foreground mb-6">
-              Типография PrintPro работает на рынке широкоформатной печати более 10 лет. 
-              Мы используем современное европейское оборудование и качественные материалы от проверенных поставщиков.
-            </p>
-            <p className="text-lg text-muted-foreground mb-8">
-              Наша команда профессионалов выполнит любой заказ — от небольших табличек до масштабных рекламных конструкций. 
-              Гарантируем высокое качество и соблюдение сроков.
-            </p>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mt-12">
-              <div className="animate-fade-in">
-                <div className="text-4xl font-bold text-primary mb-2">10+</div>
-                <div className="text-sm text-muted-foreground">лет опыта</div>
+          <div className="max-w-4xl mx-auto">
+            <h2 className="text-4xl md:text-5xl font-bold text-center mb-12">О нас</h2>
+            
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+              <Card className="p-8 animate-fade-in">
+                <h3 className="text-2xl font-semibold mb-6 flex items-center gap-2">
+                  <Icon name="Building2" className="text-primary" size={28} />
+                  О компании
+                </h3>
+                <p className="text-muted-foreground mb-6">
+                  Типография FilmPrint работает на рынке широкоформатной печати более 10 лет. 
+                  Мы используем современное европейское оборудование и качественные материалы от проверенных поставщиков.
+                </p>
+                <p className="text-muted-foreground">
+                  Наша команда профессионалов выполнит любой заказ — от небольших табличек до масштабных рекламных конструкций. 
+                  Гарантируем высокое качество и соблюдение сроков.
+                </p>
+              </Card>
+
+              <Card className="p-8 animate-fade-in" style={{ animationDelay: '150ms' }}>
+                <h3 className="text-2xl font-semibold mb-6 flex items-center gap-2">
+                  <Icon name="FileText" className="text-primary" size={28} />
+                  Реквизиты
+                </h3>
+                <div className="space-y-3 text-sm">
+                  <div>
+                    <p className="font-medium mb-1">Наименование организации:</p>
+                    <p className="text-muted-foreground">ИП Якубов Айвар Дамирович</p>
+                  </div>
+                  <div>
+                    <p className="font-medium mb-1">ИНН:</p>
+                    <p className="text-muted-foreground">771475423846</p>
+                  </div>
+                  <div>
+                    <p className="font-medium mb-1">ОГРН ИП:</p>
+                    <p className="text-muted-foreground">311774623600930</p>
+                    <p className="text-muted-foreground text-xs">выдан 24 августа 2011</p>
+                  </div>
+                  <div>
+                    <p className="font-medium mb-1">Юридический адрес:</p>
+                    <p className="text-muted-foreground">143968, Россия, Московская область, город Реутов, улица Реутовских ополченцев, дом 14, кв 311</p>
+                  </div>
+                </div>
+              </Card>
+            </div>
+
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+              <div className="text-center animate-fade-in" style={{ animationDelay: '300ms' }}>
+                <div className="text-4xl font-bold text-primary mb-2">14+</div>
+                <div className="text-sm text-muted-foreground">лет на рынке</div>
               </div>
-              <div className="animate-fade-in" style={{ animationDelay: '100ms' }}>
+              <div className="text-center animate-fade-in" style={{ animationDelay: '350ms' }}>
                 <div className="text-4xl font-bold text-primary mb-2">5000+</div>
                 <div className="text-sm text-muted-foreground">проектов</div>
               </div>
-              <div className="animate-fade-in" style={{ animationDelay: '200ms' }}>
+              <div className="text-center animate-fade-in" style={{ animationDelay: '400ms' }}>
                 <div className="text-4xl font-bold text-primary mb-2">98%</div>
                 <div className="text-sm text-muted-foreground">довольных клиентов</div>
               </div>
-              <div className="animate-fade-in" style={{ animationDelay: '300ms' }}>
-                <div className="text-4xl font-bold text-primary mb-2">24/7</div>
-                <div className="text-sm text-muted-foreground">поддержка</div>
+              <div className="text-center animate-fade-in" style={{ animationDelay: '450ms' }}>
+                <div className="text-4xl font-bold text-primary mb-2">100%</div>
+                <div className="text-sm text-muted-foreground">качество</div>
               </div>
             </div>
           </div>
@@ -248,10 +284,10 @@ const Index = () => {
       <section id="contacts" className="py-20 px-4 bg-muted/30">
         <div className="container mx-auto">
           <h2 className="text-4xl md:text-5xl font-bold text-center mb-12">Контакты</h2>
-          <div className="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div className="max-w-2xl mx-auto">
             <Card className="p-8 animate-scale-in">
-              <h3 className="text-2xl font-semibold mb-6">Свяжитесь с нами</h3>
-              <div className="space-y-4">
+              <h3 className="text-2xl font-semibold mb-6 text-center">Свяжитесь с нами</h3>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
                 <div className="flex items-start gap-3">
                   <Icon name="Phone" className="text-primary mt-1" size={20} />
                   <div>
@@ -283,7 +319,7 @@ const Index = () => {
                 </div>
               </div>
               
-              <div className="mt-8 pt-8 border-t border-border">
+              <div className="pt-8 border-t border-border">
                 <div className="flex flex-col items-center gap-4">
                   <div className="flex items-center gap-2">
                     <Icon name="Send" className="text-primary" size={24} />
@@ -299,36 +335,6 @@ const Index = () => {
                   </p>
                 </div>
               </div>
-            </Card>
-
-            <Card className="p-8 animate-scale-in" style={{ animationDelay: '150ms' }}>
-              <h3 className="text-2xl font-semibold mb-6">Заказать звонок</h3>
-              <form className="space-y-4" onSubmit={(e) => e.preventDefault()}>
-                <div>
-                  <input
-                    type="text"
-                    placeholder="Ваше имя"
-                    className="w-full px-4 py-3 border border-input rounded-md focus:outline-none focus:ring-2 focus:ring-primary"
-                  />
-                </div>
-                <div>
-                  <input
-                    type="tel"
-                    placeholder="Телефон"
-                    className="w-full px-4 py-3 border border-input rounded-md focus:outline-none focus:ring-2 focus:ring-primary"
-                  />
-                </div>
-                <div>
-                  <textarea
-                    placeholder="Комментарий"
-                    rows={4}
-                    className="w-full px-4 py-3 border border-input rounded-md focus:outline-none focus:ring-2 focus:ring-primary resize-none"
-                  />
-                </div>
-                <Button type="submit" className="w-full" size="lg">
-                  Отправить заявку
-                </Button>
-              </form>
             </Card>
           </div>
         </div>
