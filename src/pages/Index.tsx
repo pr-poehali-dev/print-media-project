@@ -2,6 +2,14 @@ import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
 import Icon from '@/components/ui/icon';
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from '@/components/ui/dialog';
+import { ScrollArea } from '@/components/ui/scroll-area';
 
 const Index = () => {
   const [activeSection, setActiveSection] = useState('home');
@@ -311,7 +319,133 @@ const Index = () => {
 
       <footer className="bg-secondary text-secondary-foreground py-8 px-4">
         <div className="container mx-auto text-center">
-          <p className="text-sm">© 2024 FilmPrint.ru. Все права защищены.</p>
+          <p className="text-sm mb-2">© 2024 FilmPrint.ru. Все права защищены.</p>
+          <Dialog>
+            <DialogTrigger asChild>
+              <button className="text-sm text-secondary-foreground/70 hover:text-secondary-foreground underline">
+                Договор оферты
+              </button>
+            </DialogTrigger>
+            <DialogContent className="max-w-3xl max-h-[80vh]">
+              <DialogHeader>
+                <DialogTitle className="text-2xl">Договор публичной оферты</DialogTitle>
+              </DialogHeader>
+              <ScrollArea className="h-[60vh] pr-4">
+                <div className="space-y-4 text-sm">
+                  <section>
+                    <h3 className="font-semibold text-lg mb-2">1. Общие положения</h3>
+                    <p className="text-muted-foreground">
+                      1.1. Настоящий документ является публичной офертой в соответствии со статьёй 437 Гражданского кодекса Российской Федерации.
+                    </p>
+                    <p className="text-muted-foreground mt-2">
+                      1.2. Исполнителем услуг по настоящему договору является ИП FilmPrint (далее — «Исполнитель»).
+                    </p>
+                    <p className="text-muted-foreground mt-2">
+                      1.3. Заказчиком является физическое или юридическое лицо, принявшее условия настоящей оферты (далее — «Заказчик»).
+                    </p>
+                  </section>
+
+                  <section>
+                    <h3 className="font-semibold text-lg mb-2">2. Предмет договора</h3>
+                    <p className="text-muted-foreground">
+                      2.1. Исполнитель обязуется оказать Заказчику услуги широкоформатной печати, а Заказчик обязуется принять и оплатить эти услуги.
+                    </p>
+                    <p className="text-muted-foreground mt-2">
+                      2.2. Перечень услуг и их стоимость указаны в прайс-листе на сайте filmprint.ru и могут быть изменены Исполнителем в одностороннем порядке.
+                    </p>
+                  </section>
+
+                  <section>
+                    <h3 className="font-semibold text-lg mb-2">3. Порядок оказания услуг</h3>
+                    <p className="text-muted-foreground">
+                      3.1. Заказчик направляет заявку на оказание услуг любым доступным способом: по телефону, электронной почте или через форму на сайте.
+                    </p>
+                    <p className="text-muted-foreground mt-2">
+                      3.2. Исполнитель рассматривает заявку и согласовывает с Заказчиком стоимость, сроки и технические требования.
+                    </p>
+                    <p className="text-muted-foreground mt-2">
+                      3.3. После согласования условий Заказчик предоставляет макет для печати в электронном виде.
+                    </p>
+                    <p className="text-muted-foreground mt-2">
+                      3.4. Исполнитель выполняет работы в согласованные сроки и уведомляет Заказчика о готовности.
+                    </p>
+                  </section>
+
+                  <section>
+                    <h3 className="font-semibold text-lg mb-2">4. Стоимость и порядок оплаты</h3>
+                    <p className="text-muted-foreground">
+                      4.1. Стоимость услуг определяется на основании прайс-листа и согласовывается с Заказчиком до начала работ.
+                    </p>
+                    <p className="text-muted-foreground mt-2">
+                      4.2. Оплата производится наличным или безналичным расчётом по согласованию сторон.
+                    </p>
+                    <p className="text-muted-foreground mt-2">
+                      4.3. Для юридических лиц оплата производится на основании выставленного счёта.
+                    </p>
+                  </section>
+
+                  <section>
+                    <h3 className="font-semibold text-lg mb-2">5. Права и обязанности сторон</h3>
+                    <p className="text-muted-foreground">
+                      5.1. Исполнитель обязуется выполнить работы качественно и в согласованные сроки.
+                    </p>
+                    <p className="text-muted-foreground mt-2">
+                      5.2. Заказчик обязуется предоставить корректный макет и своевременно оплатить услуги.
+                    </p>
+                    <p className="text-muted-foreground mt-2">
+                      5.3. Исполнитель не несёт ответственности за качество предоставленного Заказчиком макета.
+                    </p>
+                  </section>
+
+                  <section>
+                    <h3 className="font-semibold text-lg mb-2">6. Гарантии и ответственность</h3>
+                    <p className="text-muted-foreground">
+                      6.1. Исполнитель гарантирует соответствие выполненных работ техническим требованиям печати.
+                    </p>
+                    <p className="text-muted-foreground mt-2">
+                      6.2. Претензии по качеству принимаются в течение 3 дней с момента получения заказа.
+                    </p>
+                    <p className="text-muted-foreground mt-2">
+                      6.3. Исполнитель не несёт ответственности за задержку выполнения заказа по вине Заказчика.
+                    </p>
+                  </section>
+
+                  <section>
+                    <h3 className="font-semibold text-lg mb-2">7. Конфиденциальность</h3>
+                    <p className="text-muted-foreground">
+                      7.1. Стороны обязуются не разглашать конфиденциальную информацию, полученную в ходе сотрудничества.
+                    </p>
+                    <p className="text-muted-foreground mt-2">
+                      7.2. Макеты и файлы Заказчика хранятся в течение 30 дней после выполнения заказа, после чего удаляются.
+                    </p>
+                  </section>
+
+                  <section>
+                    <h3 className="font-semibold text-lg mb-2">8. Срок действия договора</h3>
+                    <p className="text-muted-foreground">
+                      8.1. Настоящий договор вступает в силу с момента принятия Заказчиком условий оферты и действует до полного исполнения обязательств сторонами.
+                    </p>
+                  </section>
+
+                  <section>
+                    <h3 className="font-semibold text-lg mb-2">9. Реквизиты исполнителя</h3>
+                    <p className="text-muted-foreground">
+                      ИП FilmPrint
+                    </p>
+                    <p className="text-muted-foreground mt-1">
+                      Адрес: г. Москва, ул. Краснобогатырская, д. 2 стр. 53
+                    </p>
+                    <p className="text-muted-foreground mt-1">
+                      Телефон: +7 (965) 354-82-82
+                    </p>
+                    <p className="text-muted-foreground mt-1">
+                      Email: zakaz@filmprint.ru
+                    </p>
+                  </section>
+                </div>
+              </ScrollArea>
+            </DialogContent>
+          </Dialog>
         </div>
       </footer>
     </div>
