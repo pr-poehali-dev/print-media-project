@@ -77,7 +77,7 @@ const Index = () => {
       <nav className="fixed top-0 w-full bg-white/80 backdrop-blur-md z-50 border-b border-border">
         <div className="container mx-auto px-4">
           <div className="flex items-center justify-between h-16">
-            <div className="text-2xl font-bold text-primary">PrintPro</div>
+            <div className="text-2xl font-bold text-primary">FilmPrint</div>
             <div className="hidden md:flex space-x-1">
               {['home', 'services', 'about', 'price', 'contacts'].map((section) => (
                 <button
@@ -258,15 +258,15 @@ const Index = () => {
                   <Icon name="MapPin" className="text-primary mt-1" size={20} />
                   <div>
                     <p className="font-medium">Адрес</p>
-                    <p className="text-muted-foreground">г. Москва, ул. Печатная, д. 15</p>
+                    <p className="text-muted-foreground">г. Москва, ул. Краснобогатырская, д. 2 стр. 53</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-3">
                   <Icon name="Clock" className="text-primary mt-1" size={20} />
                   <div>
                     <p className="font-medium">Режим работы</p>
-                    <p className="text-muted-foreground">Пн-Пт: 9:00 - 19:00</p>
-                    <p className="text-muted-foreground">Сб-Вс: 10:00 - 16:00</p>
+                    <p className="text-muted-foreground">Пн-Пт: 10:00 - 20:00</p>
+                    <p className="text-muted-foreground">Сб-Вс: Выходной</p>
                   </div>
                 </div>
               </div>
@@ -307,7 +307,7 @@ const Index = () => {
 
       <footer className="bg-secondary text-secondary-foreground py-8 px-4">
         <div className="container mx-auto text-center">
-          <p className="text-sm">© 2024 PrintPro. Все права защищены.</p>
+          <p className="text-sm">© 2024 FilmPrint.ru. Все права защищены.</p>
         </div>
       </footer>
     </div>
