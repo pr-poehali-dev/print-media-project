@@ -282,6 +282,23 @@ const Index = () => {
                   </div>
                 </div>
               </div>
+              
+              <div className="mt-8 pt-8 border-t border-border">
+                <div className="flex flex-col items-center gap-4">
+                  <div className="flex items-center gap-2">
+                    <Icon name="Send" className="text-primary" size={24} />
+                    <p className="font-semibold text-lg">Telegram канал</p>
+                  </div>
+                  <img 
+                    src="/img/0f2dbf8c-a72d-41a8-87af-e30e02055715.jpg" 
+                    alt="QR-код Telegram канала FilmPrint" 
+                    className="w-40 h-40 object-contain border-2 border-border rounded-lg"
+                  />
+                  <p className="text-sm text-muted-foreground text-center">
+                    Отсканируйте QR-код для<br />подписки на наш канал
+                  </p>
+                </div>
+              </div>
             </Card>
 
             <Card className="p-8 animate-scale-in" style={{ animationDelay: '150ms' }}>
