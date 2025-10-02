@@ -454,16 +454,33 @@ const Index = () => {
                 <div className="flex flex-col items-center gap-4">
                   <div className="flex items-center gap-2">
                     <Icon name="Send" className="text-primary" size={24} />
-                    <p className="font-semibold text-lg">Telegram канал</p>
+                    <p className="font-semibold text-lg">Наш Telegram</p>
                   </div>
-                  <img 
-                    src="/img/0f2dbf8c-a72d-41a8-87af-e30e02055715.jpg" 
-                    alt="QR-код Telegram канала FilmPrint" 
-                    className="w-40 h-40 object-contain border-2 border-border rounded-lg"
-                  />
-                  <p className="text-sm text-muted-foreground text-center">
-                    Отсканируйте QR-код для<br />подписки на наш канал
-                  </p>
+                  <a 
+                    href="https://t.me/filmprintmsk" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="transition-transform hover:scale-105"
+                  >
+                    <img 
+                      src="/img/acfa81e4-84f0-4e87-9f6a-ac7baf882c56.jpg" 
+                      alt="QR-код Telegram канала FilmPrint" 
+                      className="w-40 h-40 object-contain border-2 border-border rounded-lg bg-white"
+                    />
+                  </a>
+                  <div className="text-center">
+                    <p className="text-sm text-muted-foreground mb-2">
+                      Отсканируйте QR-код или нажмите на него
+                    </p>
+                    <a 
+                      href="https://t.me/filmprintmsk" 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="text-primary hover:underline font-medium"
+                    >
+                      @filmprintmsk
+                    </a>
+                  </div>
                 </div>
               </div>
             </Card>
