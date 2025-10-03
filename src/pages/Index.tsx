@@ -517,13 +517,13 @@ const Index = () => {
         </div>
       </section>
 
-      <footer className="bg-secondary text-secondary-foreground py-8 px-4">
+      <footer className="bg-white text-black py-8 px-4">
         <div className="container mx-auto text-center">
-          <p className="text-sm mb-3 text-white">© 2024 FilmPrint.ru. Все права защищены.</p>
+          <p className="text-sm mb-3">© 2024 FilmPrint.ru. Все права защищены.</p>
           <div className="flex items-center justify-center gap-4">
             <Dialog>
               <DialogTrigger asChild>
-                <button className="text-sm text-secondary-foreground/70 hover:text-secondary-foreground underline">
+                <button className="text-sm text-black/70 hover:text-black underline">
                   Договор оферты
                 </button>
               </DialogTrigger>
