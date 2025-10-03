@@ -65,19 +65,34 @@ const Index = () => {
 
   const portfolio = [
     {
-      image: '/img/a05b3e27-c35f-4687-8c09-6728662043fd.jpg',
-      title: 'Баннер для торгового центра',
+      image: '/img/4beb82dd-99c2-47f7-9230-3753fdc56ed4.jpg',
+      title: 'Наружная реклама',
       category: 'Широкоформатная печать',
     },
     {
-      image: '/img/3e33d6f3-1197-4801-ac41-f1323c1f862b.jpg',
-      title: 'Интерьерная картина',
-      category: 'Печать на холсте',
+      image: '/img/37d40b2c-578c-48e8-ac14-6f06ec45fd91.jpg',
+      title: 'Баннер для выставки',
+      category: 'Баннеры',
     },
     {
-      image: '/img/09ef967b-9a64-4b08-ad69-f16237e832e6.jpg',
+      image: '/img/5d7b6f97-c4cc-469f-a84e-d82698817f92.jpg',
       title: 'Офисные таблички',
-      category: 'УФ печать',
+      category: 'Таблички и вывески',
+    },
+    {
+      image: '/img/48455afd-316a-4d38-a264-dc1b2a85f5c8.jpg',
+      title: 'Интерьерная картина',
+      category: 'Картины на холстах',
+    },
+    {
+      image: '/img/199f2c53-2a9a-46f4-89ec-6e92c29ca472.jpg',
+      title: 'Печать на пластике',
+      category: 'Рулонная УФ печать',
+    },
+    {
+      image: '/img/118461d0-a203-4a46-80f7-0901a00a0d25.jpg',
+      title: 'Декорации для фотозоны',
+      category: 'Изготовление декораций',
     },
   ];
 
