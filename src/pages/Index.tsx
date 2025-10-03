@@ -171,7 +171,7 @@ const Index = () => {
             <div className="text-2xl font-bold text-foreground">FilmPrint</div>
             
             <div className="hidden md:flex space-x-1">
-              {['home', 'services', 'about', 'price', 'contacts'].map((section) => (
+              {['home', 'services', 'price', 'contacts', 'about'].map((section) => (
                 <button
                   key={section}
                   onClick={() => scrollToSection(section)}
@@ -201,7 +201,7 @@ const Index = () => {
 
           {isMobileMenuOpen && (
             <div className="md:hidden py-4 space-y-2 animate-fade-in">
-              {['home', 'services', 'about', 'price', 'contacts'].map((section) => (
+              {['home', 'services', 'price', 'contacts', 'about'].map((section) => (
                 <button
                   key={section}
                   onClick={() => scrollToSection(section)}
@@ -226,11 +226,11 @@ const Index = () => {
       <section id="home" className="pt-32 pb-20 px-4">
         <div className="container mx-auto">
           <div className="max-w-4xl mx-auto text-center animate-fade-in">
-            <h1 className="text-3xl sm:text-5xl md:text-7xl font-bold mb-6 text-foreground">
+            <h1 className="text-3xl sm:text-5xl md:text-7xl font-bold mb-6 text-foreground text-center">
               Профессиональная
               <span className="block">широкоформатная печать</span>
             </h1>
-            <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
+            <p className="text-base sm:text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
               Высокое качество, быстрые сроки и доступные цены. Работаем с любыми материалами и форматами.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
