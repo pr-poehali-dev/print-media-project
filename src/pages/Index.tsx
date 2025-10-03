@@ -166,7 +166,7 @@ const Index = () => {
       <nav className="fixed top-0 w-full bg-white/80 backdrop-blur-md z-50 border-b border-border">
         <div className="container mx-auto px-4">
           <div className="flex items-center justify-between h-16">
-            <div className="text-2xl font-bold text-primary">FilmPrint</div>
+            <div className="text-2xl font-bold bg-gradient-to-r from-cyan-500 to-purple-500 bg-clip-text text-transparent">FilmPrint</div>
             <div className="hidden md:flex space-x-1">
               {['home', 'services', 'about', 'price', 'contacts'].map((section) => (
                 <button
@@ -193,9 +193,9 @@ const Index = () => {
       <section id="home" className="pt-32 pb-20 px-4">
         <div className="container mx-auto">
           <div className="max-w-4xl mx-auto text-center animate-fade-in">
-            <h1 className="text-5xl md:text-7xl font-bold mb-6 text-foreground">
-              Профессиональная
-              <span className="block text-primary">широкоформатная печать</span>
+            <h1 className="text-5xl md:text-7xl font-bold mb-6">
+              <span className="bg-gradient-to-r from-cyan-500 via-purple-500 to-yellow-400 bg-clip-text text-transparent">Профессиональная</span>
+              <span className="block bg-gradient-to-r from-purple-500 via-cyan-500 to-yellow-400 bg-clip-text text-transparent">широкоформатная печать</span>
             </h1>
             <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
               Высокое качество, быстрые сроки и доступные цены. Работаем с любыми материалами и форматами.
@@ -283,7 +283,7 @@ const Index = () => {
 
       <section id="services" className="py-20 px-4 bg-muted/30">
         <div className="container mx-auto">
-          <h2 className="text-4xl md:text-5xl font-bold text-center mb-4">Наши услуги</h2>
+          <h2 className="text-4xl md:text-5xl font-bold text-center mb-4 bg-gradient-to-r from-cyan-500 via-purple-500 to-yellow-400 bg-clip-text text-transparent">Наши услуги</h2>
           <p className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto">
             Полный спектр услуг широкоформатной печати для бизнеса и частных клиентов
           </p>
@@ -307,7 +307,7 @@ const Index = () => {
 
       <section className="py-20 px-4">
         <div className="container mx-auto">
-          <h2 className="text-4xl md:text-5xl font-bold text-center mb-4">Портфолио</h2>
+          <h2 className="text-4xl md:text-5xl font-bold text-center mb-4 bg-gradient-to-r from-purple-500 via-yellow-400 to-cyan-500 bg-clip-text text-transparent">Портфолио</h2>
           <p className="text-center text-muted-foreground mb-12">Примеры наших работ</p>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {portfolio.map((item, index) => (
@@ -336,7 +336,7 @@ const Index = () => {
       <section id="about" className="py-20 px-4 bg-muted/30">
         <div className="container mx-auto">
           <div className="max-w-4xl mx-auto">
-            <h2 className="text-4xl md:text-5xl font-bold text-center mb-12">О нас</h2>
+            <h2 className="text-4xl md:text-5xl font-bold text-center mb-12 bg-gradient-to-r from-yellow-400 via-cyan-500 to-purple-500 bg-clip-text text-transparent">О нас</h2>
             
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
               <Card className="p-8 animate-fade-in">
@@ -405,7 +405,7 @@ const Index = () => {
 
       <section id="price" className="py-20 px-4">
         <div className="container mx-auto">
-          <h2 className="text-4xl md:text-5xl font-bold text-center mb-4">Прайс-лист</h2>
+          <h2 className="text-4xl md:text-5xl font-bold text-center mb-4 bg-gradient-to-r from-cyan-500 via-yellow-400 to-purple-500 bg-clip-text text-transparent">Прайс-лист</h2>
           <p className="text-center text-muted-foreground mb-12">Ориентировочные цены на наши услуги</p>
           <div className="max-w-3xl mx-auto">
             <Card className="divide-y">
@@ -429,7 +429,7 @@ const Index = () => {
 
       <section id="contacts" className="py-20 px-4 bg-muted/30">
         <div className="container mx-auto">
-          <h2 className="text-4xl md:text-5xl font-bold text-center mb-12">Контакты</h2>
+          <h2 className="text-4xl md:text-5xl font-bold text-center mb-12 bg-gradient-to-r from-purple-500 via-cyan-500 to-yellow-400 bg-clip-text text-transparent">Контакты</h2>
           
           <div className="max-w-5xl mx-auto mb-8">
             <Card className="overflow-hidden animate-fade-in">
