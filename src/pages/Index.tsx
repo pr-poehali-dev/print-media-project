@@ -347,11 +347,11 @@ const Index = () => {
               {priceList.map((item, index) => (
                 <div
                   key={index}
-                  className="flex justify-between items-center p-4 hover:bg-muted/50 transition-colors animate-fade-in"
+                  className="flex justify-between items-center gap-4 p-3 sm:p-4 hover:bg-muted/50 transition-colors animate-fade-in"
                   style={{ animationDelay: `${index * 50}ms` }}
                 >
-                  <span className="font-medium">{item.service}</span>
-                  <span className="text-primary font-semibold text-lg">{item.price}</span>
+                  <span className="font-medium text-sm sm:text-base">{item.service}</span>
+                  <span className="text-primary font-semibold text-sm sm:text-lg whitespace-nowrap">{item.price}</span>
                 </div>
               ))}
             </Card>
