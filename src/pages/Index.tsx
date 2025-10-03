@@ -419,7 +419,7 @@ const Index = () => {
           <div className="max-w-5xl mx-auto mb-8">
             <Card className="overflow-hidden animate-fade-in">
               <iframe
-                src="https://yandex.ru/map-widget/v1/?um=constructor%3Ad96f7c3f2f2a7c3f2f2a7c3f2f2a7c3f2f2a7c3f2f2a7c3f2f2a7c3f&amp;source=constructor"
+                src="https://yandex.ru/map-widget/v1/?ll=37.733056%2C55.796111&z=16&l=map&pt=37.733056,55.796111,pm2rdm"
                 width="100%"
                 height="450"
                 frameBorder="0"
