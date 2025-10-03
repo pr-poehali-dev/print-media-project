@@ -415,6 +415,20 @@ const Index = () => {
       <section id="contacts" className="py-20 px-4 bg-muted/30">
         <div className="container mx-auto">
           <h2 className="text-4xl md:text-5xl font-bold text-center mb-12">Контакты</h2>
+          
+          <div className="max-w-5xl mx-auto mb-8">
+            <Card className="overflow-hidden animate-fade-in">
+              <iframe
+                src="https://yandex.ru/map-widget/v1/?um=constructor%3Ad96f7c3f2f2a7c3f2f2a7c3f2f2a7c3f2f2a7c3f2f2a7c3f2f2a7c3f&amp;source=constructor"
+                width="100%"
+                height="450"
+                frameBorder="0"
+                title="Карта расположения FilmPrint"
+                style={{ border: 0 }}
+              ></iframe>
+            </Card>
+          </div>
+
           <div className="max-w-2xl mx-auto">
             <Card className="p-8 animate-scale-in">
               <h3 className="text-2xl font-semibold mb-6 text-center">Свяжитесь с нами</h3>
