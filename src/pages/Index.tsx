@@ -168,7 +168,12 @@ const Index = () => {
       <nav className="fixed top-0 w-full bg-white/80 backdrop-blur-md z-50 border-b border-border">
         <div className="container mx-auto px-4">
           <div className="flex items-center justify-between h-16">
-            <div className="text-2xl font-bold text-foreground">FilmPrint</div>
+            <img 
+              src="https://cdn.poehali.dev/files/0205ac3d-13ca-41aa-9f1f-07421b0cec3d.png" 
+              alt="FilmPrint" 
+              className="h-12 w-auto cursor-pointer"
+              onClick={() => scrollToSection('home')}
+            />
             
             <div className="hidden md:flex space-x-1">
               {['home', 'services', 'price', 'contacts', 'about'].map((section) => (
