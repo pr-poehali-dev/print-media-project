@@ -305,7 +305,31 @@ const Index = () => {
         </div>
       </section>
 
-      <section className="py-20 px-4">
+      <section id="price" className="py-20 px-4">
+        <div className="container mx-auto">
+          <h2 className="text-4xl md:text-5xl font-bold text-center mb-4 text-foreground">Прайс-лист</h2>
+          <p className="text-center text-muted-foreground mb-12">Ориентировочные цены на наши услуги</p>
+          <div className="max-w-3xl mx-auto">
+            <Card className="divide-y">
+              {priceList.map((item, index) => (
+                <div
+                  key={index}
+                  className="flex justify-between items-center p-4 hover:bg-muted/50 transition-colors animate-fade-in"
+                  style={{ animationDelay: `${index * 50}ms` }}
+                >
+                  <span className="font-medium">{item.service}</span>
+                  <span className="text-primary font-semibold text-lg">{item.price}</span>
+                </div>
+              ))}
+            </Card>
+            <p className="text-sm text-muted-foreground text-center mt-6">
+              * Точная стоимость рассчитывается индивидуально с учётом тиража, материалов и сложности макета
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section className="py-20 px-4 bg-muted/30">
         <div className="container mx-auto">
           <h2 className="text-4xl md:text-5xl font-bold text-center mb-4 text-foreground">Портфолио</h2>
           <p className="text-center text-muted-foreground mb-12">Примеры наших работ</p>
@@ -333,7 +357,7 @@ const Index = () => {
         </div>
       </section>
 
-      <section id="about" className="py-20 px-4 bg-muted/30">
+      <section id="about" className="py-20 px-4">
         <div className="container mx-auto">
           <div className="max-w-4xl mx-auto">
             <h2 className="text-4xl md:text-5xl font-bold text-center mb-12 text-foreground">О нас</h2>
@@ -399,30 +423,6 @@ const Index = () => {
                 <div className="text-sm text-muted-foreground">качество</div>
               </div>
             </div>
-          </div>
-        </div>
-      </section>
-
-      <section id="price" className="py-20 px-4">
-        <div className="container mx-auto">
-          <h2 className="text-4xl md:text-5xl font-bold text-center mb-4 text-foreground">Прайс-лист</h2>
-          <p className="text-center text-muted-foreground mb-12">Ориентировочные цены на наши услуги</p>
-          <div className="max-w-3xl mx-auto">
-            <Card className="divide-y">
-              {priceList.map((item, index) => (
-                <div
-                  key={index}
-                  className="flex justify-between items-center p-4 hover:bg-muted/50 transition-colors animate-fade-in"
-                  style={{ animationDelay: `${index * 50}ms` }}
-                >
-                  <span className="font-medium">{item.service}</span>
-                  <span className="text-primary font-semibold text-lg">{item.price}</span>
-                </div>
-              ))}
-            </Card>
-            <p className="text-sm text-muted-foreground text-center mt-6">
-              * Точная стоимость рассчитывается индивидуально с учётом тиража, материалов и сложности макета
-            </p>
           </div>
         </div>
       </section>
