@@ -32,7 +32,7 @@ const Index = () => {
 
   const services = [
     {
-      icon: 'Maximize2',
+      icon: 'Film',
       title: 'Широкоформатная печать',
       description: 'Высококачественная печать больших форматов для наружной рекламы',
     },
