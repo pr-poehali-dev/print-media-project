@@ -20,6 +20,7 @@ const Index = () => {
   const [activeSection, setActiveSection] = useState('home');
   const [isOrderDialogOpen, setIsOrderDialogOpen] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const { toast } = useToast();
   
   const [orderForm, setOrderForm] = useState({
@@ -111,6 +112,7 @@ const Index = () => {
 
   const scrollToSection = (id: string) => {
     setActiveSection(id);
+    setIsMobileMenuOpen(false);
     const element = document.getElementById(id);
     element?.scrollIntoView({ behavior: 'smooth' });
   };
@@ -167,6 +169,7 @@ const Index = () => {
         <div className="container mx-auto px-4">
           <div className="flex items-center justify-between h-16">
             <div className="text-2xl font-bold text-foreground">FilmPrint</div>
+            
             <div className="hidden md:flex space-x-1">
               {['home', 'services', 'about', 'price', 'contacts'].map((section) => (
                 <button
@@ -186,7 +189,37 @@ const Index = () => {
                 </button>
               ))}
             </div>
+
+            <button
+              className="md:hidden p-2"
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              aria-label="Меню"
+            >
+              <Icon name={isMobileMenuOpen ? "X" : "Menu"} size={24} />
+            </button>
           </div>
+
+          {isMobileMenuOpen && (
+            <div className="md:hidden py-4 space-y-2 animate-fade-in">
+              {['home', 'services', 'about', 'price', 'contacts'].map((section) => (
+                <button
+                  key={section}
+                  onClick={() => scrollToSection(section)}
+                  className={`block w-full text-left px-4 py-3 rounded-md transition-colors ${
+                    activeSection === section
+                      ? 'bg-primary text-primary-foreground'
+                      : 'hover:bg-muted'
+                  }`}
+                >
+                  {section === 'home' && 'Главная'}
+                  {section === 'services' && 'Услуги'}
+                  {section === 'about' && 'О нас'}
+                  {section === 'price' && 'Прайс'}
+                  {section === 'contacts' && 'Контакты'}
+                </button>
+              ))}
+            </div>
+          )}
         </div>
       </nav>
 
