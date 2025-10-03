@@ -398,11 +398,11 @@ const Index = () => {
           <div className="max-w-5xl mx-auto mb-8">
             <Card className="overflow-hidden animate-fade-in">
               <iframe
-                src="https://yandex.ru/map-widget/v1/?ll=37.692968%2C55.812094&z=17&l=map&pt=37.692968,55.812094,pm2rdm"
+                src="https://yandex.ru/map-widget/v1/?z=12&ol=biz&oid=87761014954"
                 width="100%"
                 height="450"
                 frameBorder="0"
-                title="Карта расположения FilmPrint - Краснобогатырская 2 стр 53"
+                title="Карта расположения FilmPrint"
                 style={{ border: 0 }}
               ></iframe>
             </Card>
