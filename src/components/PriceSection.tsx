@@ -1,18 +1,45 @@
+import { useState } from 'react';
 import { Card } from '@/components/ui/card';
+import { Button } from '@/components/ui/button';
+import { Input } from '@/components/ui/input';
+import { Label } from '@/components/ui/label';
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
+import Icon from '@/components/ui/icon';
 
 const PriceSection = () => {
-  const priceList = [
-    { service: 'Интерьерная на пленке с ламинацией (сольвент/уф)', price: '1 320 ₽/м²' },
-    { service: 'Интерьерная печать с накаткой на пвх 3 мм', price: '2 750 ₽/м²' },
-    { service: 'Интерьерная печать с накаткой на пвх 5 мм', price: '3 300 ₽/м²' },
-    { service: 'Интерьерная печать с накаткой на пенокартон 5 мм', price: '2 550 ₽/м²' },
-    { service: 'Интерьерная печать на постерной бумаге 150 гр/м', price: '920 ₽/м' },
-    { service: 'Интерьерная печать на литом баннере', price: '850 ₽/м²' },
-    { service: 'Широкоформатная печать на литом баннере', price: '720 ₽/м²' },
-    { service: 'Интерьерная печать на натуральном холсте', price: '1 850 ₽/м²' },
-    { service: 'Интерьерная печать на натуральном холсте с натяжкой на подрамник', price: '3 850 ₽/м²' },
-    { service: 'Плоттерная резка виниловой пленки с нанесением монтажной пленки', price: '1 540 ₽/м²' },
+  const [isCalculatorOpen, setIsCalculatorOpen] = useState(false);
+  const [selectedMaterial, setSelectedMaterial] = useState('');
+  const [area, setArea] = useState('');
+
+  const materials = [
+    { name: 'Интерьерная на пленке с ламинацией (сольвент/уф)', price: 1320 },
+    { name: 'Интерьерная печать с накаткой на пвх 3 мм', price: 2750 },
+    { name: 'Интерьерная печать с накаткой на пвх 5 мм', price: 3300 },
+    { name: 'Интерьерная печать с накаткой на пенокартон 5 мм', price: 2550 },
+    { name: 'Интерьерная печать на постерной бумаге 150 гр/м', price: 920 },
+    { name: 'Интерьерная печать на литом баннере', price: 850 },
+    { name: 'Широкоформатная печать на литом баннере', price: 720 },
+    { name: 'Интерьерная печать на натуральном холсте', price: 1850 },
+    { name: 'Интерьерная печать на натуральном холсте с натяжкой на подрамник', price: 3850 },
+    { name: 'Плоттерная резка виниловой пленки с нанесением монтажной пленки', price: 1540 },
   ];
+
+  const priceList = materials.map(m => ({
+    service: m.name,
+    price: `${m.price.toLocaleString('ru-RU')} ₽/м²`
+  }));
+
+  const calculateTotal = () => {
+    if (!selectedMaterial || !area || parseFloat(area) <= 0) return 0;
+    const material = materials.find(m => m.name === selectedMaterial);
+    return material ? (material.price * parseFloat(area)).toFixed(2) : 0;
+  };
+
+  const getPricePerSquareMeter = () => {
+    if (!selectedMaterial) return 0;
+    const material = materials.find(m => m.name === selectedMaterial);
+    return material ? material.price : 0;
+  };
 
   return (
     <section id="price" className="py-20 px-4">
@@ -35,6 +62,87 @@ const PriceSection = () => {
           <p className="text-sm text-muted-foreground text-center mt-6">
             * Точная стоимость рассчитывается индивидуально с учётом тиража, материалов и сложности макета
           </p>
+
+          <div className="mt-8">
+            <Button
+              onClick={() => setIsCalculatorOpen(!isCalculatorOpen)}
+              variant="outline"
+              className="w-full flex items-center justify-center gap-2"
+            >
+              <Icon name="Calculator" size={20} />
+              <span>Калькулятор стоимости</span>
+              <Icon name={isCalculatorOpen ? "ChevronUp" : "ChevronDown"} size={20} />
+            </Button>
+
+            {isCalculatorOpen && (
+              <Card className="mt-4 p-6 animate-fade-in">
+                <h3 className="text-xl font-semibold mb-6 text-center">Рассчитайте стоимость заказа</h3>
+                
+                <div className="space-y-6">
+                  <div>
+                    <Label htmlFor="material" className="mb-2 block">Выберите материал</Label>
+                    <Select value={selectedMaterial} onValueChange={setSelectedMaterial}>
+                      <SelectTrigger id="material">
+                        <SelectValue placeholder="Выберите материал из списка" />
+                      </SelectTrigger>
+                      <SelectContent>
+                        {materials.map((material, index) => (
+                          <SelectItem key={index} value={material.name}>
+                            {material.name}
+                          </SelectItem>
+                        ))}
+                      </SelectContent>
+                    </Select>
+                  </div>
+
+                  <div>
+                    <Label htmlFor="area" className="mb-2 block">Площадь (м²)</Label>
+                    <Input
+                      id="area"
+                      type="number"
+                      min="0"
+                      step="0.01"
+                      placeholder="Введите площадь в м²"
+                      value={area}
+                      onChange={(e) => setArea(e.target.value)}
+                    />
+                  </div>
+
+                  {selectedMaterial && (
+                    <div className="bg-muted/30 p-4 rounded-lg space-y-2">
+                      <div className="flex justify-between items-center">
+                        <span className="text-muted-foreground">Цена за м²:</span>
+                        <span className="font-semibold text-lg">
+                          {getPricePerSquareMeter().toLocaleString('ru-RU')} ₽
+                        </span>
+                      </div>
+                      
+                      {area && parseFloat(area) > 0 && (
+                        <>
+                          <div className="flex justify-between items-center">
+                            <span className="text-muted-foreground">Площадь:</span>
+                            <span className="font-semibold text-lg">{parseFloat(area).toFixed(2)} м²</span>
+                          </div>
+                          <div className="border-t border-border pt-2 mt-2">
+                            <div className="flex justify-between items-center">
+                              <span className="font-bold text-lg">Итоговая сумма:</span>
+                              <span className="font-bold text-2xl text-primary">
+                                {parseFloat(calculateTotal()).toLocaleString('ru-RU')} ₽
+                              </span>
+                            </div>
+                          </div>
+                        </>
+                      )}
+                    </div>
+                  )}
+
+                  <p className="text-xs text-muted-foreground text-center">
+                    * Расчёт является ориентировочным. Точная стоимость определяется после согласования всех деталей заказа.
+                  </p>
+                </div>
+              </Card>
+            )}
+          </div>
         </div>
       </div>
     </section>
