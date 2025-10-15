@@ -57,6 +57,73 @@ const ServicesSection = () => {
             </Card>
           ))}
         </div>
+
+        <div className="max-w-4xl mx-auto mt-16">
+          <Card className="p-8">
+            <h3 className="text-2xl font-bold mb-6 text-center">Технические требования к макетам</h3>
+            
+            <div className="space-y-6">
+              <div>
+                <h4 className="text-lg font-semibold mb-3 flex items-center gap-2">
+                  <Icon name="Image" className="text-primary" size={20} />
+                  Растровое изображение
+                </h4>
+                <div className="space-y-2 text-muted-foreground ml-7">
+                  <p>
+                    <span className="font-medium text-foreground">Форматы:</span> JPEG, JPG, PNG, TIFF, TIF, BMP, GIF, PSD
+                  </p>
+                  <p>
+                    <span className="font-medium text-foreground">Разрешение:</span> Минимум 150 dpi
+                  </p>
+                  <p>
+                    <span className="font-medium text-foreground">Сжатие:</span> LZW сжатие для формата TIFF
+                  </p>
+                </div>
+              </div>
+
+              <div className="border-t border-border pt-6">
+                <h4 className="text-lg font-semibold mb-3 flex items-center gap-2">
+                  <Icon name="Pencil" className="text-primary" size={20} />
+                  Векторное изображение
+                </h4>
+                <div className="space-y-2 text-muted-foreground ml-7">
+                  <p>
+                    <span className="font-medium text-foreground">Форматы:</span> EPS, SVG, PDF, AI, CDR (до 19 версии)
+                  </p>
+                  <p>
+                    <span className="font-medium text-foreground">Шрифты:</span> Все шрифты должны быть переведены в кривые
+                  </p>
+                </div>
+              </div>
+
+              <div className="border-t border-border pt-6">
+                <h4 className="text-lg font-semibold mb-3 flex items-center gap-2">
+                  <Icon name="Scissors" className="text-primary" size={20} />
+                  Файл под резку
+                </h4>
+                <div className="space-y-2 text-muted-foreground ml-7">
+                  <p>
+                    <span className="font-medium text-foreground">Структура:</span> Файл должен содержать 2 слоя
+                  </p>
+                  <ul className="list-disc list-inside ml-4 space-y-1">
+                    <li>1 слой — под печать</li>
+                    <li>2 слой — под резку</li>
+                  </ul>
+                  <p className="mt-2">
+                    <span className="font-medium text-foreground">Вылеты:</span> 3-5 мм по краям
+                  </p>
+                </div>
+              </div>
+
+              <div className="bg-muted/50 p-4 rounded-lg mt-6">
+                <p className="text-sm text-center">
+                  <Icon name="Info" className="inline mr-2" size={16} />
+                  При возникновении вопросов по подготовке макетов, наши специалисты всегда готовы помочь
+                </p>
+              </div>
+            </div>
+          </Card>
+        </div>
       </div>
     </section>
   );

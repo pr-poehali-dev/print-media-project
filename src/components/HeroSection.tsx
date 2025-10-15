@@ -145,7 +145,6 @@ const HeroSection = ({
                           type="file"
                           className="hidden"
                           onChange={handleFileChange}
-                          accept=".jpg,.jpeg,.png,.pdf,.doc,.docx,.zip,.rar"
                         />
                       </div>
                       {attachedFile && (
@@ -169,7 +168,7 @@ const HeroSection = ({
                         </div>
                       )}
                       <p className="text-xs text-muted-foreground">
-                        Поддерживаемые форматы: JPG, PNG, PDF, DOC, DOCX, ZIP, RAR (макс. 50 МБ)
+                        Максимальный размер файла: 50 МБ
                       </p>
                     </div>
                   </div>
