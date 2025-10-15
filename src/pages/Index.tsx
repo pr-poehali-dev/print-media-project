@@ -14,6 +14,7 @@ const Index = () => {
   const [activeSection, setActiveSection] = useState('home');
   const [isOrderDialogOpen, setIsOrderDialogOpen] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [attachedFile, setAttachedFile] = useState<File | null>(null);
   const { toast } = useToast();
   
   const [orderForm, setOrderForm] = useState({
@@ -35,12 +36,19 @@ const Index = () => {
     setIsSubmitting(true);
 
     try {
+      const formData = new FormData();
+      formData.append('name', orderForm.name);
+      formData.append('phone', orderForm.phone);
+      formData.append('email', orderForm.email);
+      formData.append('service', orderForm.service);
+      formData.append('description', orderForm.description);
+      if (attachedFile) {
+        formData.append('file', attachedFile);
+      }
+
       const response = await fetch(funcUrls['send-order'], {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(orderForm)
+        body: formData
       });
 
       const data = await response.json();
@@ -57,6 +65,7 @@ const Index = () => {
           service: '',
           description: ''
         });
+        setAttachedFile(null);
         setIsOrderDialogOpen(false);
       } else {
         toast({
@@ -91,6 +100,8 @@ const Index = () => {
         handleOrderSubmit={handleOrderSubmit}
         isSubmitting={isSubmitting}
         scrollToSection={scrollToSection}
+        attachedFile={attachedFile}
+        setAttachedFile={setAttachedFile}
       />
 
       <ServicesSection />

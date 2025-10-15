@@ -3,6 +3,7 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from 
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Label } from '@/components/ui/label';
+import Icon from '@/components/ui/icon';
 
 interface HeroSectionProps {
   isOrderDialogOpen: boolean;
@@ -18,6 +19,8 @@ interface HeroSectionProps {
   handleOrderSubmit: (e: React.FormEvent) => void;
   isSubmitting: boolean;
   scrollToSection: (section: string) => void;
+  attachedFile: File | null;
+  setAttachedFile: (file: File | null) => void;
 }
 
 const HeroSection = ({
@@ -27,8 +30,20 @@ const HeroSection = ({
   setOrderForm,
   handleOrderSubmit,
   isSubmitting,
-  scrollToSection
+  scrollToSection,
+  attachedFile,
+  setAttachedFile
 }: HeroSectionProps) => {
+  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0] || null;
+    setAttachedFile(file);
+  };
+
+  const handleRemoveFile = () => {
+    setAttachedFile(null);
+    const fileInput = document.getElementById('file-upload') as HTMLInputElement;
+    if (fileInput) fileInput.value = '';
+  };
   return (
     <section id="home" className="pt-32 pb-20 px-4">
       <div className="container mx-auto">
@@ -107,6 +122,52 @@ const HeroSection = ({
                       onChange={(e) => setOrderForm({...orderForm, description: e.target.value})}
                       placeholder="Опишите детали вашего заказа: размеры, материал, сроки..."
                     />
+                  </div>
+                  <div className="space-y-2">
+                    <Label htmlFor="file-upload">Прикрепить файл</Label>
+                    <div className="flex flex-col gap-2">
+                      <div className="flex items-center gap-2">
+                        <Button
+                          type="button"
+                          variant="outline"
+                          className="w-full"
+                          onClick={() => document.getElementById('file-upload')?.click()}
+                        >
+                          <Icon name="Paperclip" size={18} className="mr-2" />
+                          {attachedFile ? 'Изменить файл' : 'Выбрать файл'}
+                        </Button>
+                        <input
+                          id="file-upload"
+                          type="file"
+                          className="hidden"
+                          onChange={handleFileChange}
+                          accept=".jpg,.jpeg,.png,.pdf,.doc,.docx,.zip,.rar"
+                        />
+                      </div>
+                      {attachedFile && (
+                        <div className="flex items-center justify-between p-3 bg-muted rounded-md">
+                          <div className="flex items-center gap-2 flex-1 min-w-0">
+                            <Icon name="File" size={18} className="flex-shrink-0 text-primary" />
+                            <span className="text-sm truncate">{attachedFile.name}</span>
+                            <span className="text-xs text-muted-foreground flex-shrink-0">
+                              ({(attachedFile.size / 1024 / 1024).toFixed(2)} МБ)
+                            </span>
+                          </div>
+                          <Button
+                            type="button"
+                            variant="ghost"
+                            size="sm"
+                            onClick={handleRemoveFile}
+                            className="flex-shrink-0 ml-2"
+                          >
+                            <Icon name="X" size={16} />
+                          </Button>
+                        </div>
+                      )}
+                      <p className="text-xs text-muted-foreground">
+                        Поддерживаемые форматы: JPG, PNG, PDF, DOC, DOCX, ZIP, RAR (макс. 10 МБ)
+                      </p>
+                    </div>
                   </div>
                   <Button type="submit" className="w-full" disabled={isSubmitting}>
                     {isSubmitting ? 'Отправка...' : 'Отправить заказ'}
