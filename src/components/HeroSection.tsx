@@ -36,6 +36,10 @@ const HeroSection = ({
 }: HeroSectionProps) => {
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0] || null;
+    if (file && file.size > 50 * 1024 * 1024) {
+      alert('Размер файла не должен превышать 50 МБ');
+      return;
+    }
     setAttachedFile(file);
   };
 
@@ -165,7 +169,7 @@ const HeroSection = ({
                         </div>
                       )}
                       <p className="text-xs text-muted-foreground">
-                        Поддерживаемые форматы: JPG, PNG, PDF, DOC, DOCX, ZIP, RAR (макс. 10 МБ)
+                        Поддерживаемые форматы: JPG, PNG, PDF, DOC, DOCX, ZIP, RAR (макс. 50 МБ)
                       </p>
                     </div>
                   </div>
