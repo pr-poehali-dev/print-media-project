@@ -29,7 +29,7 @@ const Navigation = ({ activeSection, onSectionChange }: NavigationProps) => {
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
           <img 
-            src="https://cdn.poehali.dev/files/0205ac3d-13ca-41aa-9f1f-07421b0cec3d.png" 
+            src="https://cdn.poehali.dev/files/15ef05f3-9a54-48d7-95ef-2f0e307c9891.png" 
             alt="FilmPrint" 
             className="h-12 w-auto cursor-pointer"
             onClick={() => scrollToSection('home')}
