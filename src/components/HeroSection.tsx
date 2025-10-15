@@ -53,9 +53,9 @@ const HeroSection = ({
       <div className="container mx-auto">
         <div className="max-w-4xl mx-auto text-center animate-fade-in">
           <h1 className="text-3xl sm:text-5xl md:text-7xl font-bold mb-6 text-foreground text-center leading-tight">
-            <span className="block">Профессиональная</span>
-            <span className="block">широкоформатная</span>
-            <span className="block">печать</span>
+            <span className="block text-center">Профессиональная</span>
+            <span className="block text-center">широкоформатная</span>
+            <span className="block text-center">печать</span>
           </h1>
           <p className="text-base sm:text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
             Высокое качество, быстрые сроки и доступные цены. Работаем с любыми материалами и форматами.
