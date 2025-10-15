@@ -98,6 +98,25 @@ const ServicesSection = () => {
 
               <div className="border-t border-border pt-6">
                 <h4 className="text-lg font-semibold mb-3 flex items-center gap-2">
+                  <Icon name="Palette" className="text-primary" size={20} />
+                  Цветовая модель
+                </h4>
+                <div className="space-y-2 text-muted-foreground ml-7">
+                  <p>
+                    <span className="font-medium text-foreground">Модель:</span> CMYK
+                  </p>
+                  <p className="text-sm bg-amber-50 dark:bg-amber-950/20 border border-amber-200 dark:border-amber-900 rounded-md p-3">
+                    <Icon name="AlertCircle" className="inline mr-2 text-amber-600 dark:text-amber-500" size={16} />
+                    <span className="text-amber-900 dark:text-amber-200">
+                      Макеты, предоставленные в другой цветовой модели, переводятся в CMYK. 
+                      В результате оттенки могут измениться.
+                    </span>
+                  </p>
+                </div>
+              </div>
+
+              <div className="border-t border-border pt-6">
+                <h4 className="text-lg font-semibold mb-3 flex items-center gap-2">
                   <Icon name="Scissors" className="text-primary" size={20} />
                   Файл под резку
                 </h4>
