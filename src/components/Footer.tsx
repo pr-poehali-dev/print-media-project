@@ -4,8 +4,15 @@ import { ScrollArea } from '@/components/ui/scroll-area';
 const Footer = () => {
   return (
     <footer className="bg-white text-black py-8 px-4 border-t border-gray-200">
-      <div className="container mx-auto text-center">
-        <p className="text-sm mb-3">© 2024 FilmPrint.ru. Все права защищены.</p>
+      <div className="container mx-auto">
+        <div className="flex flex-col items-center mb-6">
+          <img 
+            src="https://cdn.poehali.dev/files/15ef05f3-9a54-48d7-95ef-2f0e307c9891.png" 
+            alt="FilmPrint" 
+            className="h-12 w-auto mb-4"
+          />
+          <p className="text-sm mb-3">© 2024 FilmPrint.ru. Все права защищены.</p>
+        </div>
         <div className="flex items-center justify-center gap-4">
           <Dialog>
             <DialogTrigger asChild>
