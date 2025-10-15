@@ -68,7 +68,7 @@ const ContactsSection = () => {
                   className="transition-transform hover:scale-105"
                 >
                   <img 
-                    src="https://cdn.poehali.dev/files/a2fad36d-a011-4b91-a47a-50e2f4433a98.png" 
+                    src="https://cdn.poehali.dev/files/6706140a-e4fd-43ac-b6f1-5520c374f178.png" 
                     alt="QR-код Telegram канала FilmPrint" 
                     className="w-64 h-auto object-contain rounded-lg"
                   />
